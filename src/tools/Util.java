@@ -14,7 +14,13 @@ import javax.swing.JTextField;
 public class Util {
     public static void habilitar(boolean valor, JComponent ... componentes) {
         for (int i = 0; i < componentes.length; i++) {
-            componentes[i].setEnabled(false);
+            componentes[i].setEnabled(valor);
+            
+        }
+    }
+    public static void limpar(JTextField ... componentes) {
+        for (int i = 0; i < componentes.length; i++) {
+            componentes[i].setText("");
             
         }
     }
