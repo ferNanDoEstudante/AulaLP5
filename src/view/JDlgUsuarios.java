@@ -84,7 +84,19 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
         jLabel4.setText("CPF");
 
+        try {
+            jFmtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         jLabel5.setText("Data de Nascimento");
+
+        try {
+            jFmtDataDeNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabel6.setText("Senha");
 
@@ -251,7 +263,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar( true, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDataDeNascimento, jPwfSenha, jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido);
+        Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido, jCboNivel, jFmtCpf, jChbAtivo, jFmtDataDeNascimento);
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
@@ -262,7 +274,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-
+        Util.perguntar("Deseja excluir o registro?");
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
 
@@ -274,7 +286,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here: 
-
+        Util.mensagem("não implementado.");
 
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
@@ -282,6 +294,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar( false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDataDeNascimento, jPwfSenha, jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido, jCboNivel, jFmtCpf, jChbAtivo, jFmtDataDeNascimento);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jTxtCodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtCodigoFocusLost
